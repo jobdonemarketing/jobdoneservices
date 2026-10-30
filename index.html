@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Done Services | Recruitment & Full Relocation Support</title>
+  <meta name="description" content="Specialist recruitment and complete relocation services for professionals and their families. Employment, residence, housing, legal, tax, banking, schools, language training — everything handled." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #111827;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --light: #f8fafc;
+      --primary: #1d4ed8;
+      --primary-dark: #1e3a8a;
+      --accent: #3b82f6;
+      --border: #e2e8f0;
+      --success: #059669;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11, 18, 32, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-mark {
+      width: 40px; height: 40px;
+      border: 2px solid #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.925rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover { background: var(--primary-dark); }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(29, 78, 216, 0.25), transparent),
+        linear-gradient(180deg, rgba(11,18,32,0.7) 0%, rgba(11,18,32,0.95) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%230b1220" width="100" height="100"/><circle cx="50" cy="50" r="1" fill="%231e293b"/></svg>');
+      background-size: cover;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: #60a5fa; }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 560px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.975rem;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+
+    .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .stat span {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 96px 24px;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .section-lead {
+      font-size: 1.075rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px 28px;
+      transition: all 0.25s;
+    }
+
+    .service-card:hover {
+      border-color: #bfdbfe;
+      box-shadow: 0 12px 40px -12px rgba(29, 78, 216, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .service-card ul {
+      margin-top: 14px;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .service-card li { margin-bottom: 4px; }
+
+    /* FULL PACKAGE */
+    .package {
+      background: var(--light);
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .package-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .package-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.975rem;
+      color: var(--text);
+    }
+
+    .check {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      background: #d1fae5;
+      color: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .package-visual {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 40px 36px;
+      color: #fff;
+    }
+
+    .package-visual h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .package-visual p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    .package-visual .steps {
+      display: grid;
+      gap: 16px;
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 28px; height: 28px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step strong { display: block; font-size: 0.95rem; margin-bottom: 2px; }
+    .step span { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    /* AUDIENCE */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .audience-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .audience-card .emoji {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .audience-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .audience-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--bg);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-band p {
+      color: rgba(255,255,255,0.7);
+      max-width: 480px;
+      margin: 0 auto 28px;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .form {
+      background: var(--light);
+      border-radius: 16px;
+      padding: 36px;
+      border: 1px solid var(--border);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form .btn-primary {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      color: rgba(255,255,255,0.65);
+      padding: 48px 24px 32px;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a:hover { color: #fff; }
+
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 24px auto 0;
+      text-align: center;
+      font-size: 0.825rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .package-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 64px 20px; }
+      .hero-content { padding: 110px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">JOB<br>DONE</div>
+        <span>Services</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#package">Full Package</a></li>
+        <li><a href="#who">Who we help</a></li>
+        <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Recruitment · Relocation · Done</div>
+      <h1>Specialists placed.<br><span>Lives relocated.</span><br>Everything handled.</h1>
+      <p class="hero-lead">
+        We recruit the right talent and take care of the full move for them and their families — employment, residence, housing, tax, banking, schools, language and legal support. One partner. Full options.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start a conversation</a>
+        <a href="#services" class="btn btn-outline">Explore services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>Full-cycle</strong>
+          <span>From offer to settled life</span>
+        </div>
+        <div class="stat">
+          <strong>Specialists</strong>
+          <span>Across technical & professional fields</span>
+        </div>
+        <div class="stat">
+          <strong>Family-ready</strong>
+          <span>Spouse, children, housing & schools</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-label">What we do</div>
+      <h2 class="section-title">Recruitment at the core.<br>Everything around it covered.</h2>
+      <p class="section-lead">
+        Our main activity is finding and placing specialists. Around that, we deliver the complete set of services companies and candidates normally need when relocating to a new country.
+      </p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Recruitment & Job Placement</h3>
+          <p>Targeted search and placement of specialists across engineering, IT, healthcare, operations, finance and other high-demand fields.</p>
+          <ul>
+            <li>Executive & specialist search</li>
+            <li>Candidate screening & matching</li>
+            <li>Offer management & onboarding support</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">👥</div>
+          <h3>HR & Employment Setup</h3>
+          <p>We act as your local HR partner so employment contracts, payroll and labour compliance are handled correctly from day one.</p>
+          <ul>
+            <li>Employment contracts</li>
+            <li>Payroll & social security</li>
+            <li>Labour law compliance</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">✈️</div>
+          <h3>Employee & Family Relocation</h3>
+          <p>End-to-end relocation for the professional and their family — so the focus stays on the new role, not logistics.</p>
+          <ul>
+            <li>Move coordination</li>
+            <li>Temporary & permanent housing</li>
+            <li>Spouse & family orientation</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Registration in the New Country</h3>
+          <p>We manage the formalities that make a relocation official and practical.</p>
+          <ul>
+            <li>Employment & residence permits</li>
+            <li>Tax registration & NIF</li>
+            <li>Bank account opening</li>
+            <li>Driving licence exchange</li>
+            <li>Diploma & document recognition</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Housing & Rental Support</h3>
+          <p>Finding and securing the right place to live, from short-term stay to long-term rental contracts.</p>
+          <ul>
+            <li>Property search & viewings</li>
+            <li>Lease negotiation</li>
+            <li>Utility & address setup</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⚖️</div>
+          <h3>Legal Assistance</h3>
+          <p>Reliable legal support for immigration, employment and personal administrative matters.</p>
+          <ul>
+            <li>Immigration & residence advice</li>
+            <li>Contract review</li>
+            <li>Document legalisation</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🗣️</div>
+          <h3>Language Training</h3>
+          <p>Practical language programmes so employees and family members can integrate faster at work and in daily life.</p>
+          <ul>
+            <li>Business & everyday language</li>
+            <li>Individual or group formats</li>
+            <li>Pre-arrival & post-arrival options</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🎒</div>
+          <h3>School Placement for Children</h3>
+          <p>We help families find the right school — international, public or private — and support the application process.</p>
+          <ul>
+            <li>School research & shortlisting</li>
+            <li>Application & enrolment support</li>
+            <li>Transition guidance for children</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL PACKAGE -->
+  <section id="package" class="package">
+    <div class="container">
+      <div class="package-grid">
+        <div>
+          <div class="section-label">The full options package</div>
+          <h2 class="section-title">One partner from job offer to settled life</h2>
+          <p class="section-lead" style="margin-bottom: 28px;">
+            Companies get a single accountable partner. Candidates and families get a clear path with no gaps between recruitment, permits, housing and daily life.
+          </p>
+          <ul class="package-list">
+            <li><span class="check">✓</span> Specialist recruitment and placement</li>
+            <li><span class="check">✓</span> Employment contract & HR setup</li>
+            <li><span class="check">✓</span> Residence & work authorisation</li>
+            <li><span class="check">✓</span> Tax ID, bank account, social security</li>
+            <li><span class="check">✓</span> Housing search and rental contracts</li>
+            <li><span class="check">✓</span> Document recognition (diplomas, licences)</li>
+            <li><span class="check">✓</span> Language training for employee & family</li>
+            <li><span class="check">✓</span> School placement for children</li>
+            <li><span class="check">✓</span> Legal assistance throughout the process</li>
+          </ul>
+        </div>
+        <div class="package-visual">
+          <h3>How it typically works</h3>
+          <p>A structured path so nothing falls through the cracks.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <strong>Brief & search</strong>
+                <span>Role definition, market mapping, candidate shortlist</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <strong>Offer & acceptance</strong>
+                <span>Package design, negotiation support, acceptance</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <strong>Permits & formalities</strong>
+                <span>Residence, employment, tax, banking, documents</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div>
+                <strong>Move & settle</strong>
+                <span>Housing, schools, language, family orientation</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">5</div>
+              <div>
+                <strong>Onboarding support</strong>
+                <span>First weeks support so the hire sticks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
+  <section id="who">
+    <div class="container">
+      <div class="section-label">Who we work with</div>
+      <h2 class="section-title">Built for companies hiring internationally and the people they move</h2>
+      <p class="section-lead">Whether you are scaling a team or accepting an international role, we cover both sides of the table.</p>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="emoji">🏢</div>
+          <h3>Employers & HR teams</h3>
+          <p>Need specialists and a reliable way to bring them and their families into the country without managing dozens of vendors.</p>
+        </div>
+        <div class="audience-card">
+          <div class="emoji">💼</div>
+          <h3>Specialist candidates</h3>
+          <p>Accepting a role abroad and want the employment, permits, housing and family logistics handled professionally.</p>
+        </div>
+        <div class="audience-card">
+          <div class="emoji">👨‍👩‍👧‍👦</div>
+          <h3>Relocating families</h3>
+          <p>Spouse career support, school options, language and daily practicalities so the whole household can settle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL PACKAGE DETAILS -->
+  <section id="package-details" style="background: var(--light);">
+    <div class="container">
+      <div class="section-label">Full package in detail</div>
+      <h2 class="section-title">What “full options” actually covers</h2>
+      <p class="section-lead">
+        Recruitment is the core. Everything else is designed so the specialist and their family can focus on the new role and life, not on bureaucracy and logistics.
+      </p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">1</div>
+          <h3>Talent search & placement</h3>
+          <p>We define the role with you, map the market, screen candidates, manage interviews and support the offer stage until acceptance.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">2</div>
+          <h3>Employment & HR setup</h3>
+          <p>Contracts compliant with local labour law, registration with social security, payroll setup and ongoing HR coordination if required.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">3</div>
+          <h3>Residence & work authorisation</h3>
+          <p>Guidance and support through the correct residence and work permit route for the employee and eligible family members.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">4</div>
+          <h3>Tax, bank & formal registrations</h3>
+          <p>Tax identification number, bank account opening, social security number and other mandatory registrations in the new country.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">5</div>
+          <h3>Housing & rental</h3>
+          <p>Short-term accommodation on arrival plus search and negotiation of a longer-term rental that fits the family and budget.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">6</div>
+          <h3>Documents & recognition</h3>
+          <p>Driving licence exchange, diploma and professional qualification recognition, apostilles and certified translations where needed.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">7</div>
+          <h3>Language & integration</h3>
+          <p>Language training options for the employee and family members, plus practical orientation for daily life in the new country.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">8</div>
+          <h3>Schools & family support</h3>
+          <p>Research and shortlisting of schools, application support and guidance so children can settle into education with minimal disruption.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <div class="cta-band" id="contact">
+    <h2>Ready to place talent and make the move work?</h2>
+    <p style="margin-bottom: 8px;">Write to us — we keep things practical and respond quickly.</p>
+    <p style="font-size: 1.35rem; font-weight: 700; color: #fff; margin-bottom: 28px;">
+      <a href="mailto:hello@jobdone.services" style="color: #93c5fd; text-decoration: underline;">hello@jobdone.services</a>
+    </p>
+    <a href="mailto:hello@jobdone.services" class="btn btn-primary">Email us</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Job Done Services</div>
+        <p>Specialist recruitment and complete relocation support.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#package">Full Package</a></li>
+        <li><a href="#who">Who we help</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Job Done Services. Part of the Job Done ecosystem.
+    </div>
+  </footer>
+
+</body>
+</html>
